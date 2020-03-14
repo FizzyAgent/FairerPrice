@@ -1,0 +1,13 @@
+create database hfg_db;
+use hfg_db;
+
+create table item(
+	id int auto_increment,
+	name varchar(255) not null,
+	image varchar(255) default null,
+	info varchar(3000) default null,
+	quality int default 0,
+	baseprice float(12,2) not null,
+);
+
+insert into item (name,image,info,quality,baseprice) values ('Meji Fresh Milk 2L','','','It is a nice lamp','101000000100000');
