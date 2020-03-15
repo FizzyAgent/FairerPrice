@@ -32,17 +32,24 @@ function fillInfo(item){
     imgBox.setAttribute("src", "images/product-1.jpg");
 }
 
+function priceChange(){
+    var priceBox = document.getElementById("pricebox");
+    var priceLabel = document.getElementById("price");
+    var selectedValue = priceBox.options[priceBox.selectedIndex].value;
+    priceLabel.innerHTML = "<span>$" + selectedValue + "</span>"
+}
+
 function createPanel(item){
 
     var discounts = item["discount"];
     let size = Object.keys(discounts).length;
-    var options = "";
+    var options = "<option value='" + item["base_price"] + "'>Base price: $" + item["base_price"] + "</option>";
 
     for (var i = 0; i < size; i++){
         var expiry = discounts[i]["expiry"];
         var expiryTrim = expiry.split(" ");
         var date = expiryTrim[0] + " " + expiryTrim[1] + " " + expiryTrim[2] + " " + expiryTrim[3];
-        options += "<option value='" + discounts[i]["price"] + "'>Expiring on " + date + " selling at $" + discounts[i]["price"] + "</option>"
+        options += "<option value='" + discounts[i]["price"] + "'>$" + discounts[i]["price"] + " - expires " + date + "</option>"
     }
 
     var content = `<h3>` + item["name"] + `</h3>
@@ -62,14 +69,14 @@ function createPanel(item){
                         <a href="#" class="mr-2" style="color: #000;">500 <span style="color: #bbb;">Sold</span></a>
                     </p>
                 </div>
-                <p class="price"><span>$` + item["base_price"] + `</span></p>
+                <p id="price" class="price"><span>$` + item["base_price"] + `</span></p>
                 <p>` + item["info"] + `</p>
                 <div class="row mt-4">
                     <div class="col-md-6">
                         <div class="form-group d-flex">
                             <div class="select-wrap">
                                 <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                <select name="" id="" class="form-control">` + 
+                                <select id="pricebox" class="form-control" onchange="priceChange()">` + 
                                     options + `
                                 </select>
                             </div>
