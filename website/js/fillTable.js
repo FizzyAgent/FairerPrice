@@ -1,14 +1,14 @@
 function getAllItems(){
-    
     const http = new XMLHttpRequest();
-    const ip='';
+    const url="http://3.1.163.75/all";
     http.open("GET", url);
-    http.send(-1);
+    http.send();
 
-    http.onreadystatechange = (e) => {
+    http.onreadystatechange = function() {
         if (this.readyState === 4){
             if (this.status === 200){
                 items = JSON.parse(this.responseText);
+                console.log(items);
                 fillTable(items);
             }
         }
@@ -18,25 +18,31 @@ function getAllItems(){
 function fillTable(items){
 
     var table = document.getElementById("table");
+    var content = ""
+    let size = Object.keys(items).length;
 
-    for(var i=0; i<=items.length/3; i++){
-        table.innerHTML += buildCell(items[i]);
+    for(var i=0; i < size; i++){
+        content += buildCell(items[i], i);
     }
+    console.log(content);
+    table.innerHTML = content;
 }
 
-function buildCell(item){
+function buildCell(item, itemid){
 
-    var cell = `<div class="col-md-6 col-lg-3 ftco-animate">
+    var disc = (100 * item["min_price"] / item["base_price"]).toFixed(0);
+
+    var cell = `<div class="col-md-6 col-lg-3">
                     <div class="product">
-                        <a href="#" class="img-prod"><img class="img-fluid" src="` + item["image"] + `" alt="Colorlib Template">
-                            <span class="status">30%</span>
+                        <a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Colorlib Template">
+                            <span class="status">` + disc + `%</span>
                             <div class="overlay"></div>
                         </a>
                         <div class="text py-3 pb-4 px-3 text-center">
                             <h3><a href="#">` + item["name"] +`</a></h3>
                             <div class="d-flex">
                                 <div class="pricing">
-                                    <p class="price"><span class="mr-2 price-dc">` + item["baseprice"] + `</span><span class="price-sale">` + item["minprice"] + `</span></p>
+                                    <p class="price"><span class="mr-2 price-dc">` + item["base_price"] + `</span><span class="price-sale">` + item["min_price"] + `</span></p>
                                 </div>
                             </div>
                             <div class="bottom-area d-flex px-3">
