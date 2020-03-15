@@ -1,14 +1,13 @@
 function getAllItems(){
-    const http = new XMLHttpRequest();
-    const url="http://3.1.163.75/all";
-    http.open("GET", url);
+    var http = new XMLHttpRequest();
+    var server = "http://3.1.163.75/all";
+    http.open("GET", server);
     http.send();
 
     http.onreadystatechange = function() {
         if (this.readyState === 4){
             if (this.status === 200){
                 items = JSON.parse(this.responseText);
-                console.log(items);
                 fillTable(items);
             }
         }
@@ -32,7 +31,7 @@ function buildCell(item, itemid){
 
     var disc = (100 * item["min_price"] / item["base_price"]).toFixed(0);
 
-    var cell = `<div class="col-md-6 col-lg-3">
+    var cell = `<div class="col-md-6 col-lg-3" onclick="location.href='product.html?id=` + itemid + `';">
                     <div class="product">
                         <a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Colorlib Template">
                             <span class="status">` + disc + `%</span>
