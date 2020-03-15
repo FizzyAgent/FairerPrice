@@ -3,7 +3,7 @@ function getAllItems(){
     const http = new XMLHttpRequest();
     const ip='';
     http.open("GET", url);
-    http.send(0);
+    http.send(-1);
 
     http.onreadystatechange = (e) => {
         if (this.readyState === 4){
