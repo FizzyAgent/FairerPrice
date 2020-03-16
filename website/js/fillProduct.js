@@ -53,22 +53,6 @@ function createPanel(item){
     }
 
     var content = `<h3>` + item["name"] + `</h3>
-                <div class="rating d-flex">
-                    <p class="text-left mr-4">
-                        <a href="#" class="mr-2">5.0</a>
-                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                    </p>
-                    <p class="text-left mr-4">
-                        <a href="#" class="mr-2" style="color: #000;">100 <span style="color: #bbb;">Rating</span></a>
-                    </p>
-                    <p class="text-left">
-                        <a href="#" class="mr-2" style="color: #000;">500 <span style="color: #bbb;">Sold</span></a>
-                    </p>
-                </div>
                 <p id="price" class="price"><span>$` + item["base_price"] + `</span></p>
                 <p>` + item["info"] + `</p>
                 <div class="row mt-4">
@@ -97,11 +81,8 @@ function createPanel(item){
                         </span>
 	          	    </div>
 	          	    <div class="w-100"></div>
-                    <div class="col-md-12">
-                        <p style="color: #000;">600 kg available</p>
-                    </div>
           	    </div>
-          	    <p><a href="cart.html" class="btn btn-black py-3 px-5">Add to Cart</a></p>`
+          	    <p><a href="#" class="btn btn-black py-3 px-5">Add to Cart</a></p>`
     
     return content;
 }
