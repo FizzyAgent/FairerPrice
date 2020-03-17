@@ -28,8 +28,8 @@ function fillInfo(item){
     var imgLink = document.getElementById("imglink");
     var imgBox = document.getElementById("imgbox");
 
-    imgLink.setAttribute("href", "images/product-1.jpg");
-    imgBox.setAttribute("src", "images/product-1.jpg");
+    imgLink.setAttribute("href", item["image"]);
+    imgBox.setAttribute("src", item["image"]);
 }
 
 function priceChange(){
@@ -43,13 +43,13 @@ function createPanel(item){
 
     var discounts = item["discount"];
     let size = Object.keys(discounts).length;
-    var options = "<option value='" + item["base_price"] + "'>Base price: $" + item["base_price"] + "</option>";
+    var options = "<option value='" + item["base_price"].toFixed(2) + "'>Base price: $" + item["base_price"].toFixed(2) + "</option>";
 
     for (var i = 0; i < size; i++){
         var expiry = discounts[i]["expiry"];
         var expiryTrim = expiry.split(" ");
         var date = expiryTrim[0] + " " + expiryTrim[1] + " " + expiryTrim[2] + " " + expiryTrim[3];
-        options += "<option value='" + discounts[i]["price"] + "'>$" + discounts[i]["price"] + " - expires " + date + "</option>"
+        options += "<option value='" + discounts[i]["price"].toFixed(2) + "'>$" + discounts[i]["price"].toFixed(2) + " - expires " + date + "</option>"
     }
 
     var content = `<h3>` + item["name"] + `</h3>
@@ -69,7 +69,7 @@ function createPanel(item){
                         <a href="#" class="mr-2" style="color: #000;">500 <span style="color: #bbb;">Sold</span></a>
                     </p>
                 </div>
-                <p id="price" class="price"><span>$` + item["base_price"] + `</span></p>
+                <p id="price" class="price"><span>$` + item["base_price"].toFixed(2) + `</span></p>
                 <p>` + item["info"] + `</p>
                 <div class="row mt-4">
                     <div class="col-md-6">

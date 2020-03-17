@@ -20,7 +20,7 @@ function fillTable(items){
     var content = ""
     let size = Object.keys(items).length;
 
-    for(var i=0; i < size; i++){
+    for(var i=1; i <= size; i++){
         content += buildCell(items[i], i);
     }
     console.log(content);
@@ -29,11 +29,11 @@ function fillTable(items){
 
 function buildCell(item, itemid){
 
-    var disc = (100 * item["min_price"] / item["base_price"]).toFixed(0);
+    var disc = (100 * (item["base_price"] - item["min_price"]) / item["base_price"]).toFixed(0);
 
     var cell = `<div class="col-md-6 col-lg-3" onclick="location.href='product.html?id=` + itemid + `';">
                     <div class="product">
-                        <a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Colorlib Template">
+                        <a href="#" class="img-prod"><img class="img-fluid" src="` + item["image"] + `" alt="Colorlib Template">
                             <span class="status">` + disc + `%</span>
                             <div class="overlay"></div>
                         </a>
@@ -41,7 +41,7 @@ function buildCell(item, itemid){
                             <h3><a href="#">` + item["name"] +`</a></h3>
                             <div class="d-flex">
                                 <div class="pricing">
-                                    <p class="price"><span class="mr-2 price-dc">` + item["base_price"] + `</span><span class="price-sale">` + item["min_price"] + `</span></p>
+                                    <p class="price"><span class="mr-2 price-dc">` + item["base_price"].toFixed(2) + `</span><span class="price-sale">` + item["min_price"].toFixed(2) + `</span></p>
                                 </div>
                             </div>
                             <div class="bottom-area d-flex px-3">
