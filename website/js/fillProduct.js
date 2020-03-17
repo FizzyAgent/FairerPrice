@@ -53,7 +53,6 @@ function createPanel(item){
     }
 
     var content = `<h3>` + item["name"] + `</h3>
-<<<<<<< HEAD:js/fillProduct.js
                 <div class="rating d-flex">
                     <p class="text-left mr-4">
                         <a href="#" class="mr-2">5.0</a>
@@ -71,9 +70,6 @@ function createPanel(item){
                     </p>
                 </div>
                 <p id="price" class="price"><span>$` + item["base_price"].toFixed(2) + `</span></p>
-=======
-                <p id="price" class="price"><span>$` + item["base_price"] + `</span></p>
->>>>>>> 3e2a8fabc926544466c5404cd92c6e797347d502:website/js/fillProduct.js
                 <p>` + item["info"] + `</p>
                 <div class="row mt-4">
                     <div class="col-md-6">
@@ -101,8 +97,11 @@ function createPanel(item){
                         </span>
 	          	    </div>
 	          	    <div class="w-100"></div>
+                    <div class="col-md-12">
+                        <p style="color: #000;">600 kg available</p>
+                    </div>
           	    </div>
-          	    <p><a href="#" class="btn btn-black py-3 px-5">Add to Cart</a></p>`
+          	    <p><a href="cart.html" class="btn btn-black py-3 px-5">Add to Cart</a></p>`
     
     return content;
 }
