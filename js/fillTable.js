@@ -20,7 +20,7 @@ function fillTable(items){
     var content = ""
     let size = Object.keys(items).length;
 
-    for(var i=1; i <= size; i++){
+    for(var i = 1; i <= size; i++){
         content += buildCell(items[i], i);
     }
     console.log(content);
