@@ -23,7 +23,7 @@ function fillTable(items){
     for(var i = 1; i <= size; i++){
         content += buildCell(items[i], i);
     }
-    console.log(content);
+    
     table.innerHTML = content;
 }
 
