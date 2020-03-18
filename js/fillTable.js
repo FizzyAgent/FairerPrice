@@ -33,7 +33,7 @@ function buildCell(item, itemid){
 
     var cell = `<div class="col-md-6 col-lg-3" onclick="location.href='product.html?id=` + itemid + `';">
                     <div class="product">
-                        <a href="#" class="img-prod"><img class="img-fluid" src="` + item["image"] + `" alt="Colorlib Template">
+                        <a href="#" class="img-prod img-fluid" style="background-image: url('` + item["image"] + `');">
                             <span class="status">` + disc + `%</span>
                             <div class="overlay"></div>
                         </a>

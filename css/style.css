@@ -387,7 +387,11 @@ mark,
 
 .img-fluid {
   max-width: 100%;
-  height: auto; }
+  height: 280px;
+  background-size: contain;
+  background-repeat: no-repeat; 
+  background-position: center;
+}
 
 .img-thumbnail {
   padding: 0.25rem;
@@ -6627,7 +6631,7 @@ button.bg-dark:focus {
 
 .pr-5,
 .px-5 {
-  padding-right: 4.5rem !important; }
+  padding-right: 4.6rem !important; }
 
 .pb-5,
 .py-5 {
@@ -6635,7 +6639,7 @@ button.bg-dark:focus {
 
 .pl-5,
 .px-5 {
-  padding-left: 4.5rem !important; }
+  padding-left: 4.6rem !important; }
 
 .m-n1 {
   margin: -0.25rem !important; }
